@@ -1,0 +1,29 @@
+{% load static  %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Materialize css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Materialize js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <title>To Do App</title>
+</head>
+<body>
+    <nav class="nav-wrapper grey darken-4"> <a href="{% url 'Home' %}" class="brand-logo" style="margin-left:20px">To-Do List App</a></nav>
+    <div class="container">
+    {% block content %} {% endblock content%}
+</div>
+
+<script>
+      M.AutoInit();
+      document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.dropdown-trigger');
+    var instances = M.Dropdown.init(elems, options);
+  });
+</script>
+</body>
+</html>

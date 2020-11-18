@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+        <!-- ---------------------------------------------------- -------------------------------------------- ----------------->
+    <div class="row">
+        <div class="col center">
+            <h5>Pending tasks!</h5>
+        </div>
+    </div>
+            {% if tasks != null %}
+                <div class="row">
+                    <div class="col s12">  
+                        <ul class="collapsible">
+                                {% for task in tasks %}
+                                    <li>
+                                    <div class="collapsible-header"><i class="material-icons">filter_drama</i>{{task.text}}</div>
+                                        {% if task.alt_text %}
+                                            <div class="collapsible-body"><span>{{task.alt_text}}</span></div>
+                                            </li>
+                                        {% else %}    
+                                            <div class="collapsible-body"><span> </span></div>
+                                            </li>
+                                        {% endif %}    
+                                {% endfor %}
+                        </ul> 
+                </div>   
+            {% endif %}
+            <!-- --------------------------------------------- -->
+            {% if tasks == null %} 
+                <div class="row">
+                    <div class="col">
+                        <h5>There are no tasks regitered yet, if you would like to inlcude any please feel free to do so:</h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <form class="col s12" action="add_todo/" method="post">{% csrf_token %}
+                    <div class="row">
+                        <div class="input-field col s12">
+                        <input placeholder="Name your task here" name="name" type="text" class="validate">
+                        <label for="name">Name</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <textarea name="alt" id="" cols="30" rows="10" class="materialize-textarea"></textarea>
+                            <label for="alt">If you'd like you could add some more information here...</label>
+                        </div>
+                        <div class="row">
+                            <div class="col s12">
+                                <button type="submit"  class="btn waves-effect waves-light">Accept</button>
+                            </div>
+                        </div>
+                    </form>
+                </div> 
+            {% endif %}
+    
+{% endblock content %}
