@@ -1,6 +1,38 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    
+    <div class="container">
+        <div class="row">
+            <h1>Add any task you'd like!</h1>
+          </div>
+            <!-- <div class="row">
+             <form class="col s12" action="add_todo/" method="post">{% csrf_token %}
+              <div class="row">
+                <div class="input-field col s12">
+                  <input placeholder="Name your task here" name="name" type="text" class="validate">
+                  <label for="name">Name</label>
+                </div>
+                <div class="input-field col s12">
+                    <textarea name="alt" id="" cols="30" rows="10" class="materialize-textarea"></textarea>
+                    <label for="alt">If you'd like you could add some more information here...</label>
+                  </div>
+                <div class="row">
+                    <div class="col s12">
+                        <button type="submit"  class="btn waves-effect waves-light" >Accept</button>
+                    </div>
+                </div>
+               </form>
+          </div> -->
+          
+        <form class="col s12" action="add_todo/" method="post">
+            {{  csrf_token }}
+            {{ formulario }}
+          <div class="row">
+            <div class="col s12">
+                <button type="submit"  class="btn waves-effect waves-light">Accept</button>
+            </div>
+        </form>
+        </div>
+    </div>
 
 {% endblock content %}
